@@ -1,20 +1,19 @@
 version: 0.2
-java: corretto17.x
+
 phases:
-  pre_build:
-    commands:
-      - echo "Entered the pre-build phase"
   build:
     commands:
       - echo "Entered build phase"
-      - gradlew build
-  post_build:
-    commands:
-      - echo "Entered the post-build phase"
-      - mkdir -p deploy
-      - cp scripts/*.sh deploy/
-      - cp appspec.yml deploy/
-      - cp build/libs/*.jar deploy/
+      - chmod +x ./gradlew
+      - ./gradlew build
+
 artifacts:
   files:
-    - deploy/**/*
+    - appspec.yml
+    - scripts/*.sh
+    - build/libs/*.jar
+  discard-paths: yes
+
+cache:
+  paths:
+    - '/root/.gradle/caches/**/*'
