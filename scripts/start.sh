@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-ABSPATH = $(readlink -f $0)
-ABSDIR = $(dirname $ABSPATH)
+ABSPATH=$(readlink -f $0)
+ABSDIR=$(dirname $ABSPATH)
 source ${ABSDIR}/profile.sh
 
-REPOSITORY = /home/ec2-user/app/step3
+REPOSITORY=/home/ec2-user/app/step3
 PROJECT_NAME=webservice-demo
 
 echo "> Build 파일 복사"
